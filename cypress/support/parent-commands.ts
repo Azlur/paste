@@ -1,3 +1,6 @@
+import '@applitools/eyes-cypress/commands';
+
+import {openTwilioEyes, checkTwilioEyes, closeTwilioEyes} from './utils';
 /**
  * @file Custom parent commands
  * @description commands that are not chained off of a previous command
@@ -166,3 +169,8 @@ Cypress.Commands.add('getInFixedContainer', (selector) => {
       return cy.get('@target').scrollIntoView({offset: {top: (height as number) / 2, left: 0}, ensureScrollable: true});
     });
 });
+
+Cypress.Commands.add('openTwilioEyes', openTwilioEyes);
+
+Cypress.Commands.add('checkTwilioEyes', checkTwilioEyes);
+Cypress.Commands.add('closeTwilioEyes', closeTwilioEyes);
