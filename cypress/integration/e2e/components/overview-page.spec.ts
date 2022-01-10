@@ -32,27 +32,3 @@ describe('Overview page', () => {
     cy.closeTwilioEyes();
   });
 });
-
-/*
-		cy.openTwilioEyes({
-			batchName: 'Calls Dashboard - Category Bar charts',
-			testName: 'Category Bar charts - should render Connection Rate Bar Charts on page load',
-			browser: { width: 1400, height: 1800 },
-		});
-
-		cy.wait('@stats');
-		categoryBarCharts.barChart.should('exist');
-		cy.wait(2500);
-
-		categoryBarCharts.captureScreenshot('should render connection rate chart on page load');
-
-		categoryBarCharts.barChart
-			.find('.highcharts-series-0.highcharts-column-series.highcharts-tracker > rect')
-			.eq(1)
-			.trigger('mouseover', { force: true })
-			.wait(1000);
-
-		categoryBarCharts.barChart.find('.highcharts-tooltip').should('be.visible');
-
-		cy.eyesClose();
-*/

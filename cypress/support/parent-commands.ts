@@ -82,6 +82,9 @@ declare namespace Cypress {
      * - on click of header, the changelog content is visible.
      */
     checkChangelogRevealer(): void;
+
+    closeTwilioEyes(): void;
+    checkTwilioEyes(args: {tag: string}): void;
   }
 }
 
