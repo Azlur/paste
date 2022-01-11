@@ -88,6 +88,9 @@ docs
 cypress/videos
 cypress/screenshots
 
+# Applitools
+secrets.applitools.json
+
 # Local Netlify folder
 .netlify
 
