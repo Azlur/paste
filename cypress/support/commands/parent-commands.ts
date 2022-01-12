@@ -95,11 +95,6 @@ Cypress.Commands.add('getInFixedContainer', (selector) => {
     });
 });
 
-/*
-  batchId: process.env.GITHUB_HEAD_SHA,
-  batchName: process.env.APPLITOOLS_BATCH_NAME,
-*/
-
 Cypress.Commands.add('openTwilioEyes', (overrides = {}) => {
   cy.log('checking if eyes are enabled');
   if (eyesAreEnabled()) {

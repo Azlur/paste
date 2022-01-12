@@ -20,7 +20,7 @@ describe('Token list filter', function () {
         testName: testSuiteName,
         batchName: '[Spike] add vrt with applitools',
       });
-      cy.checkTwilioEyes({});
+      cy.checkTwilioEyes();
 
       cy.closeTwilioEyes();
     });
