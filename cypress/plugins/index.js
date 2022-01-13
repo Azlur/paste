@@ -12,33 +12,25 @@
 // This function is called when a project is opened or re-opened (e.g. due to
 // the project's config changing)
 
-const secrets = require('../../secrets.applitools.json');
-const getBranchName = require('../../tools/utils/getBranchName');
-
-if (!process.env.APPLITOOLS_API_KEY) {
-  process.env.APPLITOOLS_API_KEY = !!secrets ? secrets.apiKey : '';
-}
+const result = require('dotenv').config();
 
 /**
  * @type {Cypress.PluginConfig}
  */
 module.exports = (on, config) => {
-  // `on` is used to hook into various events Cypress emits
-  // `config` is the resolved Cypress config
-
-  if (process.env.GITHUB_BRANCH_NAME != null) {
-    // this is when we are in a CI environment
-    config.env.GITHUB_BRANCH_NAME = process.env.GITHUB_BRANCH_NAME;
-
-    return config;
+  if (config.env.USE_CYPRESS_EYES == null) {
+    config.env.USE_CYPRESS_EYES = process.env.USE_CYPRESS_EYES;
   }
 
-  return getBranchName((name) => {
-    if (name != null && typeof name === 'string') {
-      config.env.GITHUB_BRANCH_NAME = name;
-    }
-    return config;
-  });
+  if (config.env.GITHUB_BRANCH_NAME == null) {
+    config.env.GITHUB_BRANCH_NAME = process.env.GITHUB_BRANCH_NAME;
+  }
+
+  if (config.env.USE_CYPRESS_EYES === true && process.env.APPLITOOLS_API_KEY == null) {
+    console.log('throw an error here and stop the run.');
+  }
+
+  return config;
 };
 
 require('@applitools/eyes-cypress')(module);

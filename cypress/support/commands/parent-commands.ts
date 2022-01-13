@@ -1,6 +1,6 @@
 import '@applitools/eyes-cypress/commands';
 
-import {getEnvironmentName, getBranchName, eyesAreEnabled} from '@utils/applitools';
+import {getBranchName, eyesAreEnabled} from '@utils/applitools';
 
 /**
  * @file Custom parent commands
@@ -100,7 +100,7 @@ Cypress.Commands.add('openTwilioEyes', (overrides = {}) => {
   if (eyesAreEnabled()) {
     cy.log('eyes are enabled!');
     const params: Partial<Eyes.Open.Options> = {
-      appName: `[DSYS] - Paste Website - ${getEnvironmentName()}}`,
+      appName: '[DSYS] - Paste Website',
       browser: {
         width: 1920,
         height: 1440,
