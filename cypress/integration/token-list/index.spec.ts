@@ -1,4 +1,5 @@
 describe('Token list filter', function () {
+  // ℹ️ If we use anon functions instead of arrow functions, we can leverage Mocha's context and pull the test name directly from this
   beforeEach(() => {
     cy.visit('/tokens');
   });
@@ -15,6 +16,7 @@ describe('Token list filter', function () {
       - need to add check for branch name/batch id for CI runs
     */
     it('Basic VRT', () => {
+      // ℹ️ We are able to reference `this.title` because we have bound this describe block to the Cypress context.
       const testSuiteName = this.title;
       cy.openTwilioEyes({
         testName: testSuiteName,
